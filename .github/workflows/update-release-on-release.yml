@@ -1,8 +1,10 @@
 name: Update release on release
 
-on:
-  release:
-    types: [created]
+on: workflow_dispatch
+
+# working as expected with on triggered release
+# release:
+#   types: [created]
 
 jobs:
   run_script:
