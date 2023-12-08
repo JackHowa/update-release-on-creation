@@ -1,0 +1,11 @@
+{
+	"name": "update-release-on-creation",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"hi": "node ./scripts/update-release.js"
+	},
+	"author": "",
+	"license": "ISC"
+}

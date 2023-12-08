@@ -1,0 +1,19 @@
+name: Update release on release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  run_script:
+    name: Run script
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run hi
+      - name: Set color
+        id: color-selector
+        run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
+      - name: Get color
+        env:
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
+        run: echo "The selected color is $SELECTED_COLOR"
