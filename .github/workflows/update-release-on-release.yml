@@ -13,7 +13,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+      - name: Install dependencies
+        run: npm ci
       - name: Running script
-        run: npm run hi
-      - name: Write output to github job
-        run: echo '${{ steps.hi.summary }}' >> $GITHUB_STEP_SUMMARY
+        id: script
+        run: |
+          OUTPUT=$(node ./scripts/update-release.js)
+          echo "::set-output name=scriptOutput::$OUTPUT"
+      - name: Echo output to github suummary
+        run: echo "${{ steps.script.outputs.scriptOutput }}" >> $GITHUB_STEP_SUMMARY
