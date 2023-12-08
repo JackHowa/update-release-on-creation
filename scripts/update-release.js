@@ -1,6 +1,6 @@
 function sayHi() {
-  console.log("said hi");
-  return "hi";
+  console.log("hi from the console");
+  return "hiii from the return value";
 }
 
-module.exports = sayHi;
+sayHi();
