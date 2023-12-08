@@ -13,7 +13,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - run: npm run hi
+      - name: hi
+        run: npm run hi
+      - name: Write output to github job
+        run: echo '${{ steps.hi.summary }}' >> $GITHUB_STEP_SUMMARY
       - name: Set color
         id: color-selector
         run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
